@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spring:beans xmlns="http://www.citrusframework.org/schema/testcase"
+	xmlns:http="http://www.citrusframework.org/schema/http/testcase"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.citrusframework.org/schema/http/testcase
+    http://www.citrusframework.org/schema/http/testcase/citrus-http-testcase.xsd
+    http://www.citrusframework.org/schema/testcase 
+    http://www.citrusframework.org/schema/testcase/citrus-testcase.xsd">
+
+	<testcase name="Artist-Nirvana">
+
+		<variables>
+			<variable name="mbid" value="5b11f4ce-a62d-471e-81fc-a69a8278c7da" />
+		</variables>
+
+		<actions>
+			<http:send-request client="restClient">
+				<http:GET path="/artist/${mbid}" />
+			</http:send-request>
+			<http:receive-response client="restClient">
+				<http:body type="json">
+					<http:data>
+						{
+						  "mbid":"${mbid}",
+						  "description":"Nirvana DUMMY"
+						}
+					</http:data>
+				</http:body>
+			</http:receive-response>
+		</actions>
+	</testcase>
+</spring:beans>

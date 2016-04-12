@@ -1,12 +1,12 @@
-package se.christer.examples;
+package se.christer.examples.boot.mashup;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BootMashupApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BootMashupApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }

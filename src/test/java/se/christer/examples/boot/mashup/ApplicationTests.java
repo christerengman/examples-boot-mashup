@@ -1,13 +1,15 @@
-package se.christer.examples;
+package se.christer.examples.boot.mashup;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import se.christer.examples.boot.mashup.Application;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = BootMashupApplication.class)
-public class BootMashupApplicationTests {
+@SpringApplicationConfiguration(classes = Application.class)
+public class ApplicationTests {
 
 	@Test
 	public void contextLoads() {
