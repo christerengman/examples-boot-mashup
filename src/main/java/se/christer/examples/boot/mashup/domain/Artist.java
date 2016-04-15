@@ -1,19 +1,50 @@
 package se.christer.examples.boot.mashup.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+/**
+ * Representation object for an artist
+ * @author christer
+ *
+ */
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Artist {
-	private final String mbid;
-	private final String description;
+	private String mbid;
+
+	private String description;
+	private ArrayList<Album> albums = new ArrayList<Album>();
 	
-	public Artist(String mbid, String description) {
-		this.mbid = mbid;
-		this.description = description;
+	public Artist() {
 	}
 
+	@JsonProperty("mbid")
 	public String getMbid() {
 		return mbid;
 	}
 
+	@JsonProperty("id")
+	public void setMbid(String mbid) {
+		this.mbid = mbid;
+	}
+
 	public String getDescription() {
 		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<Album> getAlbums() {
+		return this.albums;
+	}
+
+	public void setAlbums(ArrayList<Album> albums) {
+		this.albums = albums;
 	}
 }

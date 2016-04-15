@@ -38,6 +38,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
@@ -63,6 +68,11 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- Test only END -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -77,6 +87,11 @@
 						<goals>
 							<goal>start</goal>
 						</goals>
+						<configuration>
+							<profiles>
+								<profile>integration-test</profile>
+							</profiles>
+						</configuration>
 					</execution>
 
 					<!-- Stop Boot after Citrus integration tests -->
