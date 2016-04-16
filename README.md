@@ -1,5 +1,7 @@
 # examples-boot-mashup
 
+[![Build Status](https://travis-ci.org/christerengman/examples-boot-mashup.svg?branch=master)](https://travis-ci.org/christerengman/examples-boot-mashup)
+
 ## Description
 Mashup REST API using Spring Boot
 
