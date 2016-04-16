@@ -17,7 +17,8 @@ public class Artist {
 	private String mbid;
 
 	private String description;
-	private ArrayList<Album> albums = new ArrayList<Album>();
+	
+	private List<Album> albums = new ArrayList<Album>();
 	
 	public Artist() {
 	}

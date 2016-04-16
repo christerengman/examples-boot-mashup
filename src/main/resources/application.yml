@@ -1,11 +1,11 @@
 spring:
-    profiles: integration-test
+    profiles: default
 musicBeanz:
-    baseURI: http://localhost:8081
-
+    baseURI: http://musicbrainz.org
+    
 ---
 
 spring:
-    profiles: production
+    profiles: integration-test
 musicBeanz:
-    baseURI: http://musicbrainz.org
+    baseURI: http://localhost:8081

@@ -17,33 +17,39 @@
 		</variables>
 
 		<actions>
-			<http:send-request client="restClient">
+			<http:send-request client="restClient" fork="true">
 				<http:GET path="/artist/${mbid}" />
 			</http:send-request>
-
-			<http:receive-request server="mbServer">
-				<http:GET path="/ws/2/artist/${mbid}">
-					<http:param name="fmt" value="json" />
-					<http:param name="inc" value="url-rels+release-groups" />
-				</http:GET>
-			</http:receive-request>
-
-			<http:send-response server="mbServer">
-				<http:headers status="200" reason-phrase="OK">
-					<http:header name="Content-Type" value="application/json" />
-				</http:headers>
-				<http:body>
-					<http:resource
-						file="se/christer/examples/boot/mashup/stubs/mb-Nirvana.json" />
-				</http:body>
-			</http:send-response>
+			
+			<parallel>
+			
+				<!-- Simulate MusicBrainz API -->
+				<sequential>
+					<http:receive-request server="mbServer">
+						<http:GET path="/ws/2/artist/${mbid}">
+							<http:param name="fmt" value="json" />
+							<http:param name="inc" value="url-rels+release-groups" />
+						</http:GET>
+					</http:receive-request>
+		
+					<http:send-response server="mbServer">
+						<http:headers status="200" reason-phrase="OK">
+							<http:header name="Content-Type" value="application/json" />
+						</http:headers>
+						<http:body>
+							<http:resource
+								file="se/christer/examples/boot/mashup/stubs/mb-Nirvana.json" />
+						</http:body>
+					</http:send-response>
+				</sequential>
+			</parallel>
 
 			<http:receive-response client="restClient">
 				<http:body type="json">
 					<http:data>
 						{
 						   "mbid":"${mbid}",
-						   "description":,
+						   "description": null,
 						   "albums":[]
 						}
 					</http:data>
