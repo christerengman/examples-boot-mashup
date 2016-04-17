@@ -1,0 +1,19 @@
+{
+   "batchcomplete":"",
+   "query":{
+      "normalized":[
+         {
+            "from":"Nirvana_(band)",
+            "to":"Nirvana (band)"
+         }
+      ],
+      "pages":{
+         "21231":{
+            "pageid":21231,
+            "ns":0,
+            "title":"Nirvana (band)",
+            "extract":"Nirvana was an American rock band..."
+         }
+      }
+   }
+}

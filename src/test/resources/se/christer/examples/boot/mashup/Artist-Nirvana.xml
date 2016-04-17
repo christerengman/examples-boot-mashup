@@ -42,17 +42,42 @@
 						</http:body>
 					</http:send-response>
 				</sequential>
+
+				<!-- Simulate Wikipedia API -->
+				<sequential>
+					<http:receive-request server="wpServer">
+						<http:GET path="/w/api.php">
+							<http:param name="action" value="query" />
+							<http:param name="format" value="json" />
+							<http:param name="prop" value="extracts" />
+							<http:param name="exintro" value="true" />
+							<http:param name="redirects" value="true" />
+							<http:param name="titles" value="Nirvana_(band)" />
+						</http:GET>
+					</http:receive-request>
+		
+					<http:send-response server="wpServer">
+						<http:headers status="200" reason-phrase="OK">
+							<http:header name="Content-Type" value="application/json" />
+						</http:headers>
+						<http:body>
+							<http:resource
+								file="se/christer/examples/boot/mashup/stubs/wp-Nirvana.json" />
+						</http:body>
+					</http:send-response>
+				</sequential>
 			</parallel>
 
 			<http:receive-response client="restClient">
 				<http:body type="json">
 					<http:data>
 						{
-						   "mbid":"${mbid}",
-						   "albums":[
+						   "mbid" : "${mbid}",
+						   "description" : "Nirvana was an American rock band...",
+						   "albums" : [
 						     {
-                               "id":"01cf1391-141b-3c87-8650-45ade6e59070",
-                               "title":"Incesticide"
+                               "id" : "01cf1391-141b-3c87-8650-45ade6e59070",
+                               "title" : "Incesticide"
 						     },
 						     {
 						       "id" : "178b993e-fa9c-36d3-9d73-c5a8ba0c748d",
