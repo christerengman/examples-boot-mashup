@@ -1,8 +1,6 @@
 package se.christer.examples.boot.mashup.domain;
 
-import java.net.URI;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.net.URL;
 
 /**
  * Representation object for an album
@@ -13,8 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Album {
 	private String id;
 	private String title;
-	@JsonIgnore
-	private URI coverArt;
+	private URL coverArt;
 
 	public Album() {
 	}
@@ -35,11 +32,11 @@ public class Album {
 		this.title = title;
 	}
 
-	public URI getCoverArt() {
+	public URL getCoverArt() {
 		return coverArt;
 	}
 
-	public void setCoverArt(URI coverArt) {
+	public void setCoverArt(URL coverArt) {
 		this.coverArt = coverArt;
 	}
 

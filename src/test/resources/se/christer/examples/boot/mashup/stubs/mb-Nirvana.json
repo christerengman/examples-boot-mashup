@@ -2,19 +2,9 @@
    "id":"5b11f4ce-a62d-471e-81fc-a69a8278c7da",
    "release-groups":[
       {
-         "id":"01cf1391-141b-3c87-8650-45ade6e59070",
-         "primary-type":"Album",
-         "title":"Incesticide"
-      },
-      {
          "id":"178b993e-fa9c-36d3-9d73-c5a8ba0c748d",
          "primary-type":"Album",
          "title":"Wipeout"
-      },
-      {
-         "id":"1a0edfef-ed8a-4664-8911-1ee69c39ae26",
-         "primary-type":"Album",
-         "title":"Verse Chorus Verse"
       }
    ],
    "relations":[

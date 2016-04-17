@@ -12,13 +12,13 @@
 
 	<!-- MusicBeanz simulator -->
 	<citrus-http:server id="mbServer" port="8081"
-		auto-start="true" timeout="5000" />
+		auto-start="true" timeout="50000" />
 
 	<!-- Wikipedia simulator -->
 	<citrus-http:server id="wpServer" port="8082"
-		auto-start="true" timeout="5000" />
+		auto-start="true" timeout="50000" />
 
 	<!-- Cover Art Archive simulator -->
 	<citrus-http:server id="caaServer" port="8083"
-		auto-start="true" timeout="5000" />
+		auto-start="true" timeout="50000" />
 </beans>

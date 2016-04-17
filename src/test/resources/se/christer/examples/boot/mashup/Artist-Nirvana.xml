@@ -20,9 +20,9 @@
 			<http:send-request client="restClient" fork="true">
 				<http:GET path="/artist/${mbid}" />
 			</http:send-request>
-			
+
 			<parallel>
-			
+
 				<!-- Simulate MusicBrainz API -->
 				<sequential>
 					<http:receive-request server="mbServer">
@@ -31,7 +31,7 @@
 							<http:param name="inc" value="url-rels+release-groups" />
 						</http:GET>
 					</http:receive-request>
-		
+
 					<http:send-response server="mbServer">
 						<http:headers status="200" reason-phrase="OK">
 							<http:header name="Content-Type" value="application/json" />
@@ -55,7 +55,7 @@
 							<http:param name="titles" value="Nirvana_(band)" />
 						</http:GET>
 					</http:receive-request>
-		
+
 					<http:send-response server="wpServer">
 						<http:headers status="200" reason-phrase="OK">
 							<http:header name="Content-Type" value="application/json" />
@@ -63,6 +63,23 @@
 						<http:body>
 							<http:resource
 								file="se/christer/examples/boot/mashup/stubs/wp-Nirvana.json" />
+						</http:body>
+					</http:send-response>
+				</sequential>
+
+				<!-- Simulate Cover Art Archive API -->
+				<sequential>
+					<http:receive-request server="caaServer">
+						<http:GET path="/release-group/178b993e-fa9c-36d3-9d73-c5a8ba0c748d" />
+					</http:receive-request>
+
+					<http:send-response server="caaServer">
+						<http:headers status="200" reason-phrase="OK">
+							<http:header name="Content-Type" value="application/json" />
+						</http:headers>
+						<http:body>
+							<http:resource
+								file="se/christer/examples/boot/mashup/stubs/caa-Nirvana-Wipeout.json" />
 						</http:body>
 					</http:send-response>
 				</sequential>
@@ -76,16 +93,9 @@
 						   "description" : "Nirvana was an American rock band...",
 						   "albums" : [
 						     {
-                               "id" : "01cf1391-141b-3c87-8650-45ade6e59070",
-                               "title" : "Incesticide"
-						     },
-						     {
 						       "id" : "178b993e-fa9c-36d3-9d73-c5a8ba0c748d",
-						       "title" : "Wipeout"
-						     },
-						     {
-						       "id" : "1a0edfef-ed8a-4664-8911-1ee69c39ae26",
-						       "title" : "Verse Chorus Verse"
+						       "title" : "Wipeout",
+                               "coverArt" : "http://coverartarchive.org/release/00681632-b53b-4aae-89c2-470150f33fe3/1898023189.jpg"
 						     }
 						   ]
 						}

@@ -48,6 +48,10 @@
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+		</dependency>
 		<!-- Test only BEGIN -->
 		<dependency>
 			<groupId>com.consol.citrus</groupId>
@@ -69,11 +73,6 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- Test only END -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-configuration-processor</artifactId>
-			<optional>true</optional>
-		</dependency>
 	</dependencies>
 
 	<build>

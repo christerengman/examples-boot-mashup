@@ -17,6 +17,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @ConfigurationProperties(prefix = "musicBeanz")
 public class MusicBeanzService {
 
+	private static final String API_PATH = "/ws/2/artist/{mbid}?fmt=json&inc=url-rels+release-groups";
+
 	private static Logger LOGGER = LoggerFactory.getLogger(MusicBeanzService.class);
 
 	private String baseURI;
@@ -33,11 +35,10 @@ public class MusicBeanzService {
 		RestTemplate mb = new RestTemplate();
 
 		LOGGER.debug("baseURI: {}", getBaseURI());
-		Artist artist = mb.getForObject(getBaseURI().concat("/ws/2/artist/{mbid}?fmt=json&inc=url-rels+release-groups"),
+		Artist artist = mb.getForObject(getBaseURI().concat(API_PATH),
 				Artist.class, mbid);
 
 		return artist;
-
 	}
 
 	/**

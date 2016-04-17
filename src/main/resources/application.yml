@@ -4,6 +4,8 @@ musicBeanz:
     baseURI: http://musicbrainz.org
 wikipedia:
     baseURI: https://en.wikipedia.org
+coverArtArchive:
+    baseURI: http://coverartarchive.org
     
 ---
 
@@ -13,4 +15,6 @@ musicBeanz:
     baseURI: http://localhost:8081
 wikipedia:
     baseURI: http://localhost:8082
+coverArtArchive:
+    baseURI: http://localhost:8083
     

@@ -1,13 +1,22 @@
 package se.christer.examples.boot.mashup.services;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
+/**
+ * Service communicating with Wikipedia
+ * 
+ * @author christer
+ *
+ */
 @Service
 @ConfigurationProperties(prefix = "wikipedia")
 public class WikipediaService {
@@ -29,10 +38,19 @@ public class WikipediaService {
 		RestTemplate mb = new RestTemplate();
 
 		LOGGER.debug("baseURI: {}", getBaseURI());
-		JsonNode root = mb.getForObject(getBaseURI().concat(API_PATH), JsonNode.class, title);
-		
-		return root.findValuesAsText("extract").get(0);
-
+		try {
+			JsonNode root = mb.getForObject(getBaseURI().concat(API_PATH), JsonNode.class, title);
+			
+			List<String> extracts = root.findValuesAsText("extract");
+			if (!extracts.isEmpty()) {
+				return extracts.get(0);
+			} else {
+				return null;
+			}
+		} catch (RestClientException e) {
+			LOGGER.debug(e.getMessage());
+			return null;
+		}
 	}
 
 }

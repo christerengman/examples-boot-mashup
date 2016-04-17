@@ -1,0 +1,37 @@
+{  
+   "images":[  
+      {  
+         "types":[  
+            "Front"
+         ],
+         "front":true,
+         "back":false,
+         "edit":18892861,
+         "image":"http://coverartarchive.org/release/00681632-b53b-4aae-89c2-470150f33fe3/1898023189.jpg",
+         "comment":"",
+         "approved":true,
+         "thumbnails":{  
+            "large":"http://coverartarchive.org/release/00681632-b53b-4aae-89c2-470150f33fe3/1898023189-500.jpg",
+            "small":"http://coverartarchive.org/release/00681632-b53b-4aae-89c2-470150f33fe3/1898023189-250.jpg"
+         },
+         "id":"1898023189"
+      },
+      {  
+         "types":[  
+            "Back"
+         ],
+         "front":false,
+         "back":true,
+         "edit":18892863,
+         "image":"http://coverartarchive.org/release/00681632-b53b-4aae-89c2-470150f33fe3/1898023390.jpg",
+         "comment":"",
+         "approved":true,
+         "thumbnails":{  
+            "large":"http://coverartarchive.org/release/00681632-b53b-4aae-89c2-470150f33fe3/1898023390-500.jpg",
+            "small":"http://coverartarchive.org/release/00681632-b53b-4aae-89c2-470150f33fe3/1898023390-250.jpg"
+         },
+         "id":"1898023390"
+      }
+   ],
+   "release":"http://musicbrainz.org/release/00681632-b53b-4aae-89c2-470150f33fe3"
+}
