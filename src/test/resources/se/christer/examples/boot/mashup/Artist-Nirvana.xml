@@ -49,8 +49,20 @@
 					<http:data>
 						{
 						   "mbid":"${mbid}",
-						   "description": null,
-						   "albums":[]
+						   "albums":[
+						     {
+                               "id":"01cf1391-141b-3c87-8650-45ade6e59070",
+                               "title":"Incesticide"
+						     },
+						     {
+						       "id" : "178b993e-fa9c-36d3-9d73-c5a8ba0c748d",
+						       "title" : "Wipeout"
+						     },
+						     {
+						       "id" : "1a0edfef-ed8a-4664-8911-1ee69c39ae26",
+						       "title" : "Verse Chorus Verse"
+						     }
+						   ]
 						}
 					</http:data>
 				</http:body>

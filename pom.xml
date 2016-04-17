@@ -48,11 +48,6 @@
 			<artifactId>jackson-databind</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-
 		<!-- Test only BEGIN -->
 		<dependency>
 			<groupId>com.consol.citrus</groupId>

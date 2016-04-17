@@ -10,7 +10,15 @@
 	<!-- Test client -->
 	<citrus-http:client id="restClient" request-url="http://localhost:8080" />
 
-	<!-- MusicBeanz stub server -->
+	<!-- MusicBeanz simulator -->
 	<citrus-http:server id="mbServer" port="8081"
-		auto-start="true" resource-base="src/test/resources"/>
+		auto-start="true" timeout="5000"/>
+
+	<!-- Wikipedia simulator -->
+	<citrus-http:server id="wpServer" port="8082"
+		auto-start="true" />
+
+	<!-- Cover Art Archive simulator -->
+	<citrus-http:server id="caaServer" port="8083"
+		auto-start="true" />
 </beans>
