@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import se.christer.examples.boot.mashup.domain.Album;
 import se.christer.examples.boot.mashup.domain.Artist;
 import se.christer.examples.boot.mashup.services.CoverArtArchiveService;
-import se.christer.examples.boot.mashup.services.MusicBeanzService;
-import se.christer.examples.boot.mashup.services.MusicBeanzService.ReleaseGroup;
+import se.christer.examples.boot.mashup.services.MusicBrainzService;
+import se.christer.examples.boot.mashup.services.MusicBrainzService.ReleaseGroup;
 import se.christer.examples.boot.mashup.services.WikipediaService;
 
 @Controller
@@ -23,7 +23,7 @@ import se.christer.examples.boot.mashup.services.WikipediaService;
 public class ArtistController {
 	
 	@Autowired
-	private MusicBeanzService mbService;
+	private MusicBrainzService mbService;
 	
 	@Autowired
 	private WikipediaService wpService;
@@ -39,11 +39,11 @@ public class ArtistController {
 		artist.setMbid(mbid);
 
 		// Get artist from MusicBrainz
-		MusicBeanzService.Artist mbArtist = mbService.findArtist(mbid);
+		MusicBrainzService.Artist mbArtist = mbService.findArtist(mbid);
 
 		// Enrich artist with description from Wikipedia (if available)
 		String wpPage = null;
-		for (MusicBeanzService.Relation relation : mbArtist.getRelations()) {
+		for (MusicBrainzService.Relation relation : mbArtist.getRelations()) {
 			if ("wikipedia".equals(relation.getType())) {
 				URI uri = relation.getUrl().getResource();
 				String path = uri.getPath();

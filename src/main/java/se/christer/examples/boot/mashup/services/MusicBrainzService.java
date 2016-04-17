@@ -14,12 +14,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Service
-@ConfigurationProperties(prefix = "musicBeanz")
-public class MusicBeanzService {
+@ConfigurationProperties(prefix = "musicBrainz")
+public class MusicBrainzService {
 
 	private static final String API_PATH = "/ws/2/artist/{mbid}?fmt=json&inc=url-rels+release-groups";
 
-	private static Logger LOGGER = LoggerFactory.getLogger(MusicBeanzService.class);
+	private static Logger LOGGER = LoggerFactory.getLogger(MusicBrainzService.class);
 
 	private String baseURI;
 

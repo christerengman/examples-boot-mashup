@@ -10,7 +10,7 @@
 	<!-- Test client -->
 	<citrus-http:client id="restClient" request-url="http://localhost:8080" />
 
-	<!-- MusicBeanz simulator -->
+	<!-- MusicBrainz simulator -->
 	<citrus-http:server id="mbServer" port="8081"
 		auto-start="true" timeout="50000" />
 
