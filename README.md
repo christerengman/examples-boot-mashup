@@ -68,4 +68,4 @@ In Citrus, I defined all external services as separate servers to distinguish be
 
 ## Known Issues
 
-The external services are slow and rate limited which occasionally causes HTTP 503 errors all the way back to the client. This could however be solved with caching (e.g. using EHCache) and retry functionality with exponential back-off.
+The external services are slow and rate limited which occasionally causes HTTP 503 errors all the way back to the client. Caching has been implemented but of course only helps for repetitive calls for the same artist.

@@ -7,6 +7,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
@@ -43,6 +44,7 @@ public class CoverArtArchiveService {
 	 *            the MusicBrainz release-group id
 	 * @return URL of front cover art image, or null if not available
 	 */
+	@Cacheable("caaCovers")
 	public URL getCoverArt(String id) {
 		RestTemplate api = new RestTemplate();
 
