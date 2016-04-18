@@ -8,11 +8,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Service communicating with the MusicBrainz API
+ * 
+ * @author christer
+ *
+ */
 @Service
 @ConfigurationProperties(prefix = "musicBrainz")
 public class MusicBrainzService {
@@ -31,14 +38,24 @@ public class MusicBrainzService {
 		this.baseURI = baseURI;
 	}
 
+	/**
+	 * Finds and returns an artist.
+	 * 
+	 * @param mbid
+	 *            the MusicBrainz artist ID
+	 * @return the artist if found, or null if not found
+	 */
 	public Artist findArtist(String mbid) {
 		RestTemplate mb = new RestTemplate();
 
 		LOGGER.debug("baseURI: {}", getBaseURI());
-		Artist artist = mb.getForObject(getBaseURI().concat(API_PATH),
-				Artist.class, mbid);
-
-		return artist;
+		try {
+			Artist artist = mb.getForObject(getBaseURI().concat(API_PATH), Artist.class, mbid);
+			return artist;
+		} catch (RestClientException e) {
+			LOGGER.debug(e.getMessage());
+			return null;
+		}
 	}
 
 	/**
@@ -149,7 +166,7 @@ public class MusicBrainzService {
 			this.url = url;
 		}
 	}
-	
+
 	/**
 	 * Representation of an MusicBrainz artist relation URL
 	 * 

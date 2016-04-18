@@ -13,6 +13,12 @@ import org.springframework.web.client.RestTemplate;
 
 import com.jayway.jsonpath.JsonPath;
 
+/**
+ * Service communicating with the Cover Art Archive API.
+ * 
+ * @author christer
+ *
+ */
 @Service
 @ConfigurationProperties(prefix = "coverArtArchive")
 public class CoverArtArchiveService {
@@ -32,8 +38,10 @@ public class CoverArtArchiveService {
 
 	/**
 	 * Finds front cover art URL for an release-group
-	 * @param id the MusicBrainz release-group id
-	 * @return URL of front cover art image, or null if not available 
+	 * 
+	 * @param id
+	 *            the MusicBrainz release-group id
+	 * @return URL of front cover art image, or null if not available
 	 */
 	public URL getCoverArt(String id) {
 		RestTemplate api = new RestTemplate();

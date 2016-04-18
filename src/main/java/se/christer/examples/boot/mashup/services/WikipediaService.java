@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import com.fasterxml.jackson.databind.JsonNode;
 
 /**
- * Service communicating with Wikipedia
+ * Service communicating with the Wikipedia API.
  * 
  * @author christer
  *
@@ -34,13 +34,21 @@ public class WikipediaService {
 		this.baseURI = baseURI;
 	}
 
+	/**
+	 * Returns an extract (short version) of the description of a page in
+	 * Wikipedia
+	 * 
+	 * @param title
+	 *            the title of the Wikipedia page to get the extract from
+	 * @return the extract of the page or null if not found
+	 */
 	public String getExtract(String title) {
 		RestTemplate mb = new RestTemplate();
 
 		LOGGER.debug("baseURI: {}", getBaseURI());
 		try {
 			JsonNode root = mb.getForObject(getBaseURI().concat(API_PATH), JsonNode.class, title);
-			
+
 			List<String> extracts = root.findValuesAsText("extract");
 			if (!extracts.isEmpty()) {
 				return extracts.get(0);
