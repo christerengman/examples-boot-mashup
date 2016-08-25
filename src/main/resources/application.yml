@@ -1,3 +1,8 @@
+server:
+  port: 8100
+ 
+---
+
 spring:
     profiles: default
 musicBrainz:
@@ -12,9 +17,9 @@ coverArtArchive:
 spring:
     profiles: integration-test
 musicBrainz:
-    baseURI: http://localhost:8081
+    baseURI: http://localhost:8101
 wikipedia:
-    baseURI: http://localhost:8082
+    baseURI: http://localhost:8102
 coverArtArchive:
-    baseURI: http://localhost:8083
+    baseURI: http://localhost:8103
     

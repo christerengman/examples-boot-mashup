@@ -18,7 +18,7 @@ Aggregates information from the following three sources into a new REST API:
 ```
 $ mvn install
 $ mvn spring-boot:run
-$ curl http://localhost:8080/artist/5b11f4ce-a62d-471e-81fc-a69a8278c7da
+$ curl http://localhost:8100/artist/5b11f4ce-a62d-471e-81fc-a69a8278c7da
 ...
 ```
 
